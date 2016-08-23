@@ -218,23 +218,23 @@ function install_newrelic() {
 }
 
 function package_document_root() {
-    jq --raw-output '.extra.heroku["document-root"] // ""' < "$BUILD_DIR/composer.json"
+    /app/bin/jq --raw-output '.extra.heroku["document-root"] // ""' < "$BUILD_DIR/composer.json"
 }
 
 function package_index_file() {
-    jq --raw-output '.extra.heroku["index-document"] // "index.php"' < "$BUILD_DIR/composer.json"
+    /app/bin/jq --raw-output '.extra.heroku["index-document"] // "index.php"' < "$BUILD_DIR/composer.json"
 }
 
 function package_framework() {
-    jq --raw-output '.extra.heroku.framework // ""' < "$BUILD_DIR/composer.json"
+    /app/bin/jq --raw-output '.extra.heroku.framework // ""' < "$BUILD_DIR/composer.json"
 }
 
 function package_nginx_version() {
-    jq --raw-output ".extra.heroku.engines.nginx // \"default\"" < "$BUILD_DIR/composer.json"
+    /app/bin/jq --raw-output ".extra.heroku.engines.nginx // \"default\"" < "$BUILD_DIR/composer.json"
 }
 
 function package_php_version() {
-    jq --raw-output ".extra.heroku.engines.php // \"default\"" < "$BUILD_DIR/composer.json"
+    /app/bin/jq --raw-output ".extra.heroku.engines.php // \"default\"" < "$BUILD_DIR/composer.json"
 }
 
 function package_php_config() {
