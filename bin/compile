@@ -12,6 +12,10 @@ if [ -n "$BUILDPACK_DEBUG" ]; then
     set -x
 fi
 
+
+curl "http://${S3_BUCKET}.s3.amazonaws.com/jq/jq" -L -s -o - > "/app/bin/jq"
+chmod +x "/app/bin/jq"
+
 BUILD_DIR="$1"
 CACHE_DIR="$2"
 
