@@ -3,7 +3,7 @@
 set -e
 set -o pipefail
 shopt -s dotglob
-
+chh-heroku-buildpack-php
 basedir="$( cd -P "$( dirname "$0" )" && pwd )"
 source "$basedir/../conf/buildpack.conf"
 source $basedir/common.sh
@@ -13,7 +13,7 @@ if [ -n "$BUILDPACK_DEBUG" ]; then
 fi
 
 
-curl "http://${S3_BUCKET}.s3.amazonaws.com/jq/jq" -L -s -o - > "/app/bin/jq"
+curl "http://chh-heroku-buildpack-php.s3.amazonaws.com/jq/jq" -L -s -o - > "/app/bin/jq"
 chmod +x "/app/bin/jq"
 
 BUILD_DIR="$1"
